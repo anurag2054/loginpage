@@ -5,6 +5,13 @@ $username = "root";
 $password = "";
 $database = "visitor_db";
 
+session_start();
+
+// Check if user is logged in, if not, redirect them to the login page
+if(!isset($_SESSION['username'])) {
+    header("Location: loginpage.php");
+    exit;
+}
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
