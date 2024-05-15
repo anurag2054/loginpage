@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if(isset($_SESSION['username'])) {
+  header("Location: show.php");
+  exit;
+}
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if username and password are provided
